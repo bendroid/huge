@@ -1,8 +1,6 @@
-<div class="container">
-    <h1>NoteController/edit/:note_id</h1>
+<h4>Edit Note</h4>
 
-    <div class="box">
-        <h2>Edit a note</h2>
+        <h4>Edit a note</h4>
 
         <!-- echo out the system feedback (error and success messages) -->
         <?php $this->renderFeedbackMessages(); ?>
@@ -18,5 +16,3 @@
         <?php } else { ?>
             <p>This note does not exist.</p>
         <?php } ?>
-    </div>
-</div>

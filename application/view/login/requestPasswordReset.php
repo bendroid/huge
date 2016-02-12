@@ -1,6 +1,4 @@
-<div class="container">
-    <h1>Request a password reset</h1>
-    <div class="box">
+<h4>Request Password Reset</h4>
 
         <!-- echo out the system feedback (error and success messages) -->
         <?php $this->renderFeedbackMessages(); ?>
@@ -23,8 +21,7 @@
             <input type="submit" value="Send me a password-reset mail" />
         </form>
 
-    </div>
-</div>
+
 <div class="container">
     <p style="display: block; font-size: 11px; color: #999;">
         Please note: This captcha will be generated when the img tag requests the captcha-generation

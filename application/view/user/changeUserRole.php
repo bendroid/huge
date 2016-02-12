@@ -1,11 +1,9 @@
-<div class="container">
-    <h1>UserController/changeUserRole</h1>
+<h4>UserController/changeUserRole</h4>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-    <div class="box">
-        <h2>Change account type</h2>
+        <h4>Change account type</h4>
         <p>
             This page is a basic implementation of the upgrade-process.
             User can click on that button to upgrade their accounts from
@@ -18,7 +16,7 @@
 		    Please note: This whole process has been renamed from AccountType (v3.0) to UserRole (v3.1).
 	    </p>
 
-        <h2>Currently your account type is: <?php echo Session::get('user_account_type'); ?></h2>
+        <h4>Currently your account type is: <?php echo Session::get('user_account_type'); ?></h4>
         <!-- basic implementation for two account types: type 1 and type 2 -->
 	    <form action="<?php echo Config::get('URL'); ?>user/changeUserRole_action" method="post">
             <?php if (Session::get('user_account_type') == 1) { ?>
@@ -27,5 +25,3 @@
 	            <input type="submit" name="user_account_downgrade" value="Downgrade my account (to Basic User)" />
 	        <?php } ?>
 	    </form>
-    </div>
-</div>

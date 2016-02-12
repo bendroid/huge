@@ -1,11 +1,9 @@
-<div class="container">
-    <h1>Edit your avatar</h1>
+<h4>Edit your avatar</h4>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-    <div class="box">
-        <h3>Upload an Avatar</h3>
+        <h4>Upload an Avatar</h4>
 
         <div class="feedback info">
             If you still see the old picture after uploading a new one: Hard-Reload the page with F5! Your browser doesn't
@@ -21,8 +19,6 @@
         </form>
     </div>
 
-    <div class="box">
-        <h3>Delete your avatar</h3>
+    
+        <h4>Delete your avatar</h4>
         <p>Click this link to delete your (local) avatar: <a href="<?php echo Config::get('URL'); ?>user/deleteAvatar_action">Delete your avatar</a>
-    </div>
-</div>

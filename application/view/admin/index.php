@@ -1,57 +1,72 @@
-<div class="container">
-    <h1>Admin/index</h1>
-
-    <div class="box">
+<h4>Admin/index</h4>
 
         <!-- echo out the system feedback (error and success messages) -->
         <?php $this->renderFeedbackMessages(); ?>
 
-        <h3>What happens here ?</h3>
+        <h4>What happens here ?</h4>
 
         <div>
             This controller/action/view shows a list of all users in the system. with the ability to soft delete a user
             or suspend a user.
         </div>
-        <div>
-            <table class="overview-table">
-                <thead>
-                <tr>
-                    <td>Id</td>
-                    <td>Avatar</td>
-                    <td>Username</td>
-                    <td>User's email</td>
-                    <td>Activated ?</td>
-                    <td>Link to user's profile</td>
-                    <td>suspension Time in days</td>
-                    <td>Soft delete</td>
-                    <td>Submit</td>
-                </tr>
-                </thead>
-                <?php foreach ($this->users as $user) { ?>
-                    <tr class="<?= ($user->user_active == 0 ? 'inactive' : 'active'); ?>">
-                        <td><?= $user->user_id; ?></td>
-                        <td class="avatar">
-                            <?php if (isset($user->user_avatar_link)) { ?>
-                                <img src="<?= $user->user_avatar_link; ?>"/>
-                            <?php } ?>
-                        </td>
-                        <td><?= $user->user_name; ?></td>
-                        <td><?= $user->user_email; ?></td>
-                        <td><?= ($user->user_active == 0 ? 'No' : 'Yes'); ?></td>
-                        <td>
-                            <a href="<?= Config::get('URL') . 'profile/showProfile/' . $user->user_id; ?>">Profile</a>
-                        </td>
-                        <form action="<?= config::get("URL"); ?>admin/actionAccountSettings" method="post">
-                            <td><input type="number" name="suspension" /></td>
-                            <td><input type="checkbox" name="softDelete" <?php if ($user->user_deleted) { ?> checked <?php } ?> /></td>
-                            <td>
-                                <input type="hidden" name="user_id" value="<?= $user->user_id; ?>" />
-                                <input type="submit" />
-                            </td>
-                        </form>
-                    </tr>
-                <?php } ?>
-            </table>
-        </div>
-    </div>
-</div>
+
+    <div class="row">
+    <?php foreach ($this->users as $user) { ?>
+        <div class="col s12 m4">
+          <div class="card grey lighten-5 z-depth-1">
+            <div class="card-image">
+            <?php if (isset($user->user_avatar_link)) { ?>
+                <img class="responsive-img" src="<?= $user->user_avatar_link; ?>" />
+            <?php } ?>
+              <span class="card-title"><?= $user->user_name; ?></span>
+            </div><!-- card-image -->
+<div class="card-panel grey lighten-5 z-depth-1">
+<div class="row valign-wrapper">
+<div class="col s2">
+<?php if (isset($user->user_avatar_link)) { ?>
+<img class="responsive-img circle" src="<?= $user->user_avatar_link; ?>" />
+<?php } ?>
+</div><!-- col s2 -->
+<div class="col s10">
+<span class="black-text">
+<form action="<?= config::get("URL"); ?>admin/actionAccountSettings" method="post">
+<input type="number" name="suspension" />
+<input type="checkbox" name="softDelete" <?php if ($user->user_deleted) { ?> checked <?php } ?> />
+
+<input type="hidden" name="user_id" value="<?= $user->user_id; ?>" />
+<input type="submit" />
+
+</form>
+</span>
+</div><!-- col s10 -->
+</div><!-- row valign-wrapper -->
+</div><!-- card panel -->
+        <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div><!-- card-content -->
+            <div class="card-action">
+              <div><strong>User ID: </strong><?= $user->user_id; ?></div>
+              <div><strong>Your username: </strong><?= $user->user_name; ?></div>
+              <div><strong>Your email: </strong><?= $user->user_email; ?></div>
+              <div><strong>Your first name: </strong><?= $user->first_name; ?></div>
+              <div><strong>Your last name: </strong><?= $user->last_name; ?></div>
+              <div><strong>Your full name: </strong><?= $user->full_name; ?></div>
+              <div><strong>Mobile phone: </strong><?= $user->mobile_phone; ?></div>
+              <div><strong>Home phone: </strong><?= $user->home_phone; ?></div>
+              <div><strong>Work phone: </strong><?= $user->work_phone; ?></div>
+              <div><strong>Street: </strong><?= $user->user_street; ?></div>
+              <div><strong>City: </strong><?= $user->user_city; ?></div>
+              <div><strong>State: </strong><?= $user->user_state; ?></div>
+              <div><strong>Zip: </strong><?= $user->user_zip; ?></div>
+              <div><strong>Facebook: </strong><?= $user->user_fb; ?></div>
+              <div><strong>Twitter: </strong><?= $user->user_twitter; ?></div>
+              <div><strong>Github: </strong><?= $user->user_github; ?></div>
+              <div><strong>Google Plus: </strong><?= $user->user_gp; ?></div>
+              <div><strong>Active: </strong><?= ($user->user_active == 0 ? 'No' : 'Yes'); ?></div>
+              <div><strong>Profile: </strong><a href="<?= Config::get('URL') . 'profile/showProfile/' . $user->user_id; ?>"><?= $user->user_name; ?></a></div>
+            </div>
+          </div><!-- CARD -->
+        </div><!-- COL -->
+      <?php } ?>
+
+    </div><!-- ROW -->

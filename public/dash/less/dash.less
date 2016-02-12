@@ -1,0 +1,574 @@
+/*!
+ * Dash - Responsive Bootstrap Dashboard Navbar - v1.4 (http://html.codbits.com/dash)
+ * Copyright CodBits (http://codbits.com)
+ * Licensed under CodeCanyon (http://codecanyon.net/licenses)
+ *
+ * Notes:
+ * 1. dnt is abbreviation of the Dash Navbar Top.
+ * 2. dnl is abbreviation of the Dash Navbar Left.
+ * 3. I do recommend using LESS for customizations.
+ * 
+ */
+
+// Load core variables and mixins
+// --------------------------------------------------
+@import "variables.less";
+@import "variables-dark.less";
+@import "variables-custom.less";
+@import "mixins.less";
+
+/* Global
+/ -------------------------------------------------- */
+	html {
+		position: relative;
+		min-height: 100%;
+	}
+
+/* Dash Navbar Top = dnt
+/ -------------------------------------------------- */
+	.dash-navbar-top {
+		background-color: @dnt-bg-color;
+		margin-bottom: 0;
+		min-height: 61px;
+
+		// Toggle button for the left navbar
+		.dnl-btn-toggle {
+			position: absolute;
+			left: 16px;
+			top: 13.5px;
+			font-size: 21px;
+			background-color: rgba(0, 0, 0, 0);
+			border-width: 0;
+			color: @dnt-toggle-btn-color;
+			outline: 0;
+		}
+
+		// Toggle button on visible version
+		&.dnl-visible {
+			@media(min-width: 768px) {
+				.dnl-btn-toggle {
+					display: none;
+				}
+			}
+		}
+
+		// Navbar brand
+		.navbar-brand {
+			padding: 20px;
+			font-weight: bold;
+			margin-left: 20px;
+			color: @dnt-brand-link-color;
+
+			span {
+				font-size: 10px;
+				font-weight: normal;
+			}
+
+			&:hover,
+			&:focus {
+				color: @dnt-brand-link-hover-color;
+			}
+
+			@media(max-width: 767px) {
+				margin-left: 35px; 
+			}
+		}
+
+		// Navbar brand on visible version
+		&.dnl-visible {
+			@media(min-width: 767px) {
+				.navbar-brand {
+					margin-left: 0;
+					padding-left: 5px;
+				}
+			}
+		}
+
+		// Navbar brand on hidden version
+		&.dnl-hidden {
+			@media(min-width: 767px) {
+				.navbar-brand {
+					margin-left: 35px;
+					padding-left: 5px;
+				}
+			}
+		}
+
+		// Toggle button for top navbar on small devices
+		.navbar-toggle {
+			border-width: 0;
+			font-size: 24px;
+			color: @dnt-toggle-btn-color;
+			padding: 0 10px;
+			margin-top: 14px;
+			margin-right: 15px;
+
+			&:hover,
+			&:focus {
+				background-color: transpardnt;
+			}
+		}
+
+		// Top navbar nav
+		.navbar-nav {
+			text-align: center;
+
+			> li { 
+				> a {
+					color: @dnt-link-color;
+					padding-top: 20px;
+					padding-bottom: 20px;
+
+					&:hover,
+					&:focus {
+						background-color: @dnt-link-hover-color;
+					}
+				} 
+
+				&.dropdown.open {
+					> a {
+						background-color: @dnt-link-hover-color;
+
+						&:hover,
+						&:focus {
+							background-color: @dnt-link-hover-color;
+						}
+					}
+				}
+			} // li
+
+			// Dropdown menu
+			.dropdown-menu {
+				top: 107%;
+				border-radius: 3px;
+				min-width: 200px;
+				padding-top: 0;
+				padding-bottom: 0;
+				.box-shadow(0 1px 9px rgba(0, 0, 0, 0.1));
+
+				> li {
+					border-bottom: 1px solid @dnt-dm-li-border-bottom-color;
+
+					> a {
+						padding: 10px 20px;
+						position: relative;
+						color: @dnt-dm-link-color;
+
+						&:hover,
+						&:focus {
+							background-color: @dnt-dm-link-hover-bg-color;
+						}
+
+						@media(max-width: 767px) {
+							color: @dnt-dm-sd-link-color;
+
+							&:hover,
+							&:focus {
+								background-color: @dnt-dm-sd-link-hover-bg-color;
+							}
+						}
+
+						span {
+							font-size: 11px;
+							text-transform: uppercase;
+							position: absolute;
+							right: 14px;
+							top: 13px;
+
+							// move the icon more top
+							@media(max-width: 767px) {
+								top: 9px;
+							}
+						}
+					} // a
+
+					// Change border color
+					@media(max-width: 767px) {
+						border-bottom-color: @dnt-dm-sd-li-border-bottom-color; 
+					}
+
+					// Remove the last li border bottom
+					&:last-child {
+						border-bottom-width: 0;
+					}
+
+					// Active class
+					&.active {
+						> a {
+							background-color: @dnt-dm-link-active-bg-color;
+							color: @dnt-dm-link-active-color;
+
+							&:hover,
+							&:focus {
+								background-color: @dnt-dm-link-active-hover-bg-color;
+								color: @dnt-dm-link-active-hover-color;
+							}
+
+							@media(max-width: 767px) {
+								background-color: @dnt-dm-sd-link-active-bg-color;
+								color: @dnt-dm-sd-link-active-color;
+
+								&:hover,
+								&:focus {
+									background-color: @dnt-dm-sd-link-active-hover-bg-color;
+									color: @dnt-dm-sd-link-active-hover-color;
+								}
+							}
+						} // a
+					} // .active
+				} // li
+
+				// Top arrow
+				&:before {
+					position: absolute;
+					top: -9px;
+					left: 9px;
+					display: inline-block;
+					border-right: 9px solid rgba(0, 0, 0, 0);
+					border-bottom: 9px solid #CCC;
+					border-left: 9px solid rgba(0, 0, 0, 0);
+					border-bottom-color: rgba(0, 0, 0, 0.2);
+					content: '';
+				}
+
+				&:after {
+					position: absolute;
+					top: -8px;
+					left: 10px;
+					display: inline-block;
+					border-right: 8px solid rgba(0, 0, 0, 0);
+					border-bottom: 8px solid #FFF;
+					border-left: 8px solid rgba(0, 0, 0, 0);
+					content: '';
+				}
+
+				// Remove the top arrow on small devices
+				@media(max-width: 767px) {
+					&:before,
+					&:after {
+						display: none;
+					}
+				}
+			} // .dropdown-menu
+
+			// If navbar-nav has navbar-right class
+			&.navbar-right {
+				&.navbar-avatar {
+					.dropdown-menu {
+						// Top arrow
+						&:before {
+							right: 29px;
+							left: auto;
+						}
+
+						&:after {
+							right: 30px;
+							left: auto;
+						}
+					}
+				}
+
+				.dropdown-menu {
+					// Top arrow
+					&:before {
+						right: 10px;
+						left: auto;
+					}
+
+					&:after {
+						right: 11px;
+						left: auto;
+					}
+				}
+			} // .navbar-right
+
+		} // .navbar-nav
+
+		// Search form
+		.dnt-navbar-form {
+			position: relative;
+			margin-top: 14px;
+			margin-bottom: 0px;
+
+			.form-control {
+				border-radius: 50px;
+
+				&:focus {
+					@shadow: 0 0 0, 0 0 0,inset 0 0 2px #333;
+					.box-shadow(@shadow);
+					border-color: @dnt-bg-color;
+				}
+			}
+
+			.btn {
+				position: absolute;
+				background-color: transparent;
+				top: 0;
+				right: 15px;
+				outline: 0;
+
+				&:active {
+					.box-shadow(0 0 0);
+				}
+
+				// Change border color
+				@media(max-width: 767px) {
+					top: 10px; 
+				}
+			}
+		} // .dnt-navbar-form
+
+		// Avatar
+		.dnt-avatar {
+			border-radius: 50px;
+			.size(35px, 35px);
+			@shadow: 0 0 0 2px @dnt-bg-color, 0 0 0 4px lighten(@dnt-bg-color, 20%);
+			.box-shadow(@shadow);
+			margin-right: 3px;
+			margin: -11px 7px -11px 0;
+		}
+	} // .dash-navbar-top
+
+/* Dash Navbar Left = dnl
+/ -------------------------------------------------- */
+	.dash-navbar-left {
+		position: absolute;
+		background-color: @dnl-bg-color;
+		width: @dnl-width;
+		top: 61px;
+		bottom: 0;
+		overflow-y: auto;
+		z-index: 999;
+		padding-top: 5px;
+		.transition(left @transition-period);
+
+		// For visible version
+		&.dnl-visible {
+			@media(max-width: 767px) {
+				left: -@dnl-width;
+
+				&.dnl-show {
+					left: 0;
+				}
+			}
+		}
+
+		// For hidden version
+		&.dnl-hidden {
+			left: -@dnl-width;
+
+			&.dnl-show {
+				left: 0;
+			}
+		}
+
+		// Nav title
+		.dnl-nav-title {
+			text-transform: uppercase;
+			color: @dnl-nt-color;
+			border-bottom: 1px solid @dnl-nt-border-bottom-color;
+			padding: 10px 25px;
+			font-size: 11px;
+			letter-spacing: 1px;
+		}
+
+		// Nav
+		.dnl-nav {
+			padding-left: 0;
+			list-style: none;
+
+			ul {
+				padding-left: 0;
+				list-style: none;
+			}
+
+			li {
+				position: relative;
+
+				a {
+					display: block;
+					outline: 0;
+					padding: 8px 25px 7px;
+					font-size: @dnl-link-font-size;
+					color: @dnl-link-color;
+
+					&:hover,
+					&:focus {
+						color: @dnl-link-hover-color;
+						text-decoration: none;
+						background-color: @dnl-link-hover-bg-color;
+						.box-shadow(inset 3px 0 0 @dnl-link-hover-left-border-color);
+
+						.badge {
+							color: #EEE;
+						}
+					}
+
+					> .dnl-link-icon {
+						padding-right: 8px;
+					}
+
+					> .dnl-link-text {
+
+					}
+
+					> .dnl-btn-sub-collapse {
+						position: absolute;
+						right: 25px;
+						top: 10px;
+					}
+
+					> .badge {
+						position: absolute;
+						right: 24px;
+						top: 6px;
+						padding: 3px 10px;
+						color: @dnl-badge-color;
+						background-color: @dnl-badge-bg-color;
+						border: @dnl-badge-border;
+					}
+
+					&.collapsed {
+						.dnl-btn-sub-collapse {
+							.rotate(180deg);
+						}
+					}
+
+				} // a
+
+				// Active class
+				&.active {
+					> a {
+						background-color: @dnl-link-active-bg-color;
+						.box-shadow(inset 3px 0 0 @dnl-link-active-left-border-color);
+					}
+				}
+
+				// Sub nav level 1
+				.dnl-sub-one {
+					background-color: @dnl-snl1-bg-color;
+
+					li {
+						border-top: @dnl-snl1-li-border-color;
+
+						a {
+							display: block;
+							color: @dnl-snl1-link-color;
+
+							&:hover,
+							&:focus {
+								color: @dnl-snl1-link-hover-color;
+								background-color: @dnl-snl1-link-hover-bg-color;
+								.box-shadow(inset 3px 0 0 @dnl-snl1-link-left-border-color);
+							}
+
+							> .dnl-link-icon {
+								padding-right: 8px;
+							}
+
+							> .dnl-link-text {
+							}
+
+							> .badge {
+								color: @dnl-snl1-badge-color;
+								background-color: @dnl-snl1-badge-bg-color;
+								border: @dnl-snl1-badge-border;
+							}
+
+						}
+
+						// Active class
+						&.active {
+							> a {
+								background-color: @dnl-snl1-link-active-bg-color;
+								.box-shadow(inset 3px 0 0 @dnl-snl1-link-active-left-border-color);
+							}
+						}
+
+					}
+				} // .dnl-sub-one
+
+				// Sub nav level 2
+				.dnl-sub-two {
+					background-color: @dnl-snl2-bg-color;
+
+					li {
+						border-top-color: @dnl-snl2-li-border-color;
+
+						a {
+							color: @dnl-snl2-link-color;
+
+							&:hover,
+							&:focus {
+								color: @dnl-snl2-link-hover-color;
+								background-color: @dnl-snl2-link-hover-bg-color;
+								.box-shadow(inset 3px 0 0 @dnl-snl2-link-left-border-color);
+							}
+
+							> .badge {
+								color: @dnl-snl2-badge-color;
+								background-color: @dnl-snl2-badge-bg-color;
+								border: @dnl-snl2-badge-border;
+							}
+
+						}
+
+						// Active class
+						&.active {
+							> a {
+								background-color: @dnl-snl2-link-active-bg-color;
+								.box-shadow(inset 3px 0 0 @dnl-snl2-link-active-left-border-color);
+							}
+						}
+					}
+				} // .dnl-sub-two
+
+			} // li
+		} // .dnl-nav
+
+	} // .dash-navbar-left
+
+/* Content wrap
+/ -------------------------------------------------- */
+	.content-wrap {
+		position: relative;
+
+		&.dnl-visible {
+			margin-left: @dnl-width;
+
+			@media(max-width: 767px) {
+				margin-left: 0;
+			  .transition(all @transition-period);
+
+			  // Define content effect when the left menu toggle
+			  &.dnl-push {
+			  	.translate(@dnl-width, 0);
+			  }
+
+			}
+		}
+
+		&.dnl-hidden {
+			margin-left: 0;
+		  .transition(all @transition-period);
+
+		  // Define content effect when the left menu toggle
+		  &.dnl-push {
+		  	margin-left: @dnl-width;
+
+			  	@media(max-width: 767px) {
+			  		margin-left: 0;
+			  		.translate(@dnl-width, 0);
+		  		}
+		  }
+		}
+
+		// Content opacity effect
+			&.content-opacity {
+				&.dnl-overlay,
+				&.dnl-push {
+					.opacity( .3 );
+				}
+			}
+
+	} // .content-wrap 

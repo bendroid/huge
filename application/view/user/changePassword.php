@@ -1,11 +1,9 @@
-<div class="container">
-    <h1>UserController/changePassword</h1>
+<h4>UserController/changePassword</h4>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-    <div class="box">
-        <h2>Set new password</h2>
+        <h4>Set new password</h4>
 
         <!-- new password form box -->
         <form method="post" action="<?php echo Config::get('URL'); ?>user/changePassword_action" name="new_password_form">
@@ -20,6 +18,3 @@
                    name="user_password_repeat" pattern=".{6,}" required autocomplete="off" /></p>
             <input type="submit"  name="submit_new_password" value="Submit new password" />
         </form>
-
-    </div>
-</div>

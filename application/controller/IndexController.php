@@ -8,6 +8,10 @@ class IndexController extends Controller
     public function __construct()
     {
         parent::__construct();
+
+        // VERY IMPORTANT: All controllers/areas that should only be usable by logged-in users
+        // need this line! Otherwise not-logged in users could do actions.
+        Auth::checkAuthentication();
     }
 
     /**

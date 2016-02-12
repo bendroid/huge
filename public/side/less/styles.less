@@ -1,0 +1,661 @@
+/*!
+ * Over - Bootstrap Side Navbar - v1.0 (http://html.codbits.com/over)
+ * Copyright CodBits (http://codbits.com)
+ * Licensed under CodeCanyon (http://codecanyon.net/licenses)
+ *
+ * Notes:
+ * 1. ont is abbreviation of the Over Navbar Top.
+ * 2. onl is abbreviation of the Over Navbar Left.
+ * 3. I do recommend using LESS for customizations.
+ * 
+ */
+
+// Load core variables and mixins
+// --------------------------------------------------
+@import "variables.less";
+@import "variables-custom.less";
+@import "mixins.less";
+
+/* Global
+/ -------------------------------------------------- */
+body {
+	position: relative;
+}
+
+.main-wrap {
+	overflow-x: hidden;
+	position: relative;
+}
+
+/* Over Navbar Top = ont
+/ -------------------------------------------------- */
+.over-navbar-top {
+	background-color: @ont-bg-color;
+	border-bottom-width: 0;
+	margin-bottom: 0;
+	min-height: 61px;
+
+	.onl-btn-toggle {
+		float: right;
+	}
+
+	.navbar-brand {
+		color: #EEE;
+		padding: 20px;
+		font-weight: bold;
+		.transition(margin @transition-period);
+
+		span {
+			font-size: 10px;
+			font-weight: normal;
+			background-color: #5CB85C;
+			padding: 2px 8px;
+			vertical-align: bottom;
+			border-radius: 2px;
+		}
+	}
+
+	.navbar-toggle {
+		border-width: 0;
+		font-size: 24px;
+		color: #EEE;
+		padding: 0 10px;
+		margin-top: 14px;
+		margin-right: 15px;
+
+		&:hover,
+		&:focus {
+			background-color: transparont;
+		}
+	}
+
+	.navbar-nav {
+		text-align: center;
+
+
+		> li { 
+			position: relative;
+			display: inline-block;
+
+			a {
+				padding: 20px;
+				font-size: 22px;
+				color: @ont-link-color;
+
+				&:hover,
+				&:focus {
+					background-color: darken(@ont-bg-color, 10%);
+				}
+			}
+
+			.notification {
+				top: 9px;
+				right: 9px;
+				position: absolute;
+				border-radius: 50%;
+				font-size: 12px;
+				.size(19px, 19px);
+				padding: 2px 7px;
+				background-color: #DB4CDC;
+				color: #EEE;
+
+				&.primary {
+					background-color: @brand-primary;
+				}
+
+				&.info {
+					background-color: @brand-info;
+				}
+
+				&.success {
+					background-color: @brand-success;
+				}
+
+				&.danger {
+					background-color: @brand-danger;
+				}
+
+				&.warning {
+					background-color: @brand-warning;
+				}
+			}
+
+			// Dropdown menu
+			.dropdown-menu {
+				top: 107%;
+				border-radius: 3px;
+				min-width: 200px;
+				padding-top: 0;
+				padding-bottom: 0;
+				.box-shadow(0 1px 9px rgba(0, 0, 0, 0.1));
+
+				> li {
+					border-bottom: 1px solid #EEE;
+
+					// Change border color
+					@media(max-width: @screen-sm) {
+						border-bottom-color: lighten(@ont-bg-color, 10%); 
+					}
+
+					// Remove the last li border bottom
+					&:last-child {
+						border-bottom-width: 0;
+					}
+
+					// Active class
+					&.active {
+						> a {
+							background-color: @ont-link-active-bg-color;
+							color: @ont-link-active-color;
+
+							&:hover,
+							&:focus {
+								background-color: darken(@ont-link-active-bg-color, 5%);
+							}
+						}
+					}
+
+					> a {
+						padding: 10px 20px;
+						position: relative;
+
+						span {
+							font-size: 11px;
+							text-transform: uppercase;
+							position: absolute;
+							right: 14px;
+							top: 13px;
+
+							// move the icon more top
+							@media(max-width: @screen-sm) {
+								top: 9px;
+							}
+						}
+					} // a
+				} // li
+
+				// Top arrow
+				&:before {
+					position: absolute;
+					top: -9px;
+					left: 9px;
+					display: inline-block;
+					border-right: 9px solid rgba(0, 0, 0, 0);
+					border-bottom: 9px solid #CCC;
+					border-left: 9px solid rgba(0, 0, 0, 0);
+					border-bottom-color: rgba(0, 0, 0, 0.2);
+					content: '';
+				}
+
+				&:after {
+					position: absolute;
+					top: -8px;
+					left: 10px;
+					display: inline-block;
+					border-right: 8px solid rgba(0, 0, 0, 0);
+					border-bottom: 8px solid #FFF;
+					border-left: 8px solid rgba(0, 0, 0, 0);
+					content: '';
+				}
+
+				// Remove the top arrow on small devices
+				@media(max-width: @screen-sm) {
+					&:before,
+					&:after {
+						display: none;
+					}
+				}
+
+				// open class, is added on small devices 
+				&.open {
+					li {
+						&.active {
+							> a {
+								background-color: @ont-link-active-bg-color;
+								color: @ont-link-active-color;
+							}
+						} // .active
+					}
+				} // .open
+
+			} // .dropdown-menu 
+
+		} // li
+
+		// If navbar-nav has navbar-right class
+		&.navbar-right {
+			&.navbar-avatar {
+				.dropdown-menu {
+					// Top arrow
+					&:before {
+						right: 29px;
+						left: auto;
+					}
+
+					&:after {
+						right: 30px;
+						left: auto;
+					}
+				}
+			}
+
+			.dropdown-menu {
+				// Top arrow
+				&:before {
+					right: 10px;
+					left: auto;
+				}
+
+				&:after {
+					right: 11px;
+					left: auto;
+				}
+			}
+		} // .navbar-right
+
+		@media (max-width: 767px) {
+			margin: 0;
+		}
+
+	} // .navbar-nav
+
+	// Button text color fix n small devices
+	@media (max-width: 767px) {
+		.navbar-nav .open .dropdown-menu > li > a.btn {
+			color: #EEE;
+		}  
+	}
+
+	// Search form
+	.ont-navbar-form {
+		position: relative;
+		margin-top: 14px;
+		margin-bottom: 0px;
+
+		.form-control {
+			border-radius: 50px;
+
+			&:focus {
+				@shadow: 0 0 0, 0 0 0,inset 0 0 2px #333;
+				.box-shadow(@shadow);
+				border-color: @ont-bg-color;
+			}
+		}
+
+		.btn {
+			position: absolute;
+			background-color: transparent;
+			top: 0;
+			right: 15px;
+			outline: 0;
+
+			&:active {
+				.box-shadow(0 0 0);
+			}
+
+			// Change border color
+			@media(max-width: 767px) {
+				top: 10px; 
+			}
+		}
+	} // .ont-navbar-form
+
+	// Avatar
+	.ont-avatar {
+		border-radius: 50px;
+		.size(35px, 35px);
+		@shadow: 0 0 0 2px @ont-bg-color, 0 0 0 4px lighten(@ont-bg-color, 20%);
+		.box-shadow(@shadow);
+		margin-right: 3px;
+		margin: -11px 7px -11px 0;
+	}
+} // .over-navbar-top
+
+/* Over Navbar Left = onl
+/ -------------------------------------------------- */
+.over-navbar-left {
+	position: absolute;
+	background-color: @onl-bg-color;
+	width: @onl-width;
+	height: 100%;
+	top: 0;
+	z-index: 999;
+	.transition(right @transition-period);
+	padding-top: 5px;
+	right: -@onl-width;
+
+	&.onl-show {
+		right: 0;
+	}
+
+	// Nav user
+	.onl-user {
+		position: relative;
+		padding-top: 20px;
+		text-align: center;
+
+		.onl-avatar {	
+			border-radius: 50%;
+			border: 5px solid @onl-bg-color;
+			.box-shadow(0 0 0 2px lighten(@onl-bg-color, 5%));
+		}
+
+		// Btn group
+		> .btn-group {
+			width: 100%;
+			padding: 7px;
+
+			.btn {
+				color: #EEE;
+				background-color: transparent;
+				float: none;
+				font-weight: bold;
+
+				&:focus {
+					.box-shadow(0 0 0);
+				}
+			}
+
+			&.open {
+				.btn {
+					.box-shadow(0 0 0);
+				}
+			}
+
+			.dropdown-menu {
+				border-radius: 3px;
+				width: @onl-width - 11;
+				left: 5px;
+				top: 103%;
+
+				li {
+					a {
+						padding-top: 10px;
+						padding-bottom: 10px;
+					}
+
+					&.active {
+						a {
+							background-color: #72717F;
+						}
+					}
+				}
+
+				// Top arrow
+				&:before {
+					position: absolute;
+					top: -9px;
+					left: 80px;
+					display: inline-block;
+					border-right: 9px solid rgba(0, 0, 0, 0);
+					border-bottom: 9px solid #FFF;
+					border-left: 9px solid rgba(0, 0, 0, 0);
+					border-top-color: @ont-border-color;
+					content: '';
+				}
+
+			}
+
+		}
+
+		// User title
+		.user-title {
+			color: darken(#EEE, 40%);
+			font-size: 12px;
+			letter-spacing: .5px;
+			margin-top: -8px;
+		}
+
+		// User statistics 
+		.user-statistics {
+			background-color: darken(@onl-bg-color, 5%);
+			padding: 10px 0;
+
+			ul {
+				margin-bottom: 0;
+
+				li {
+					padding: 6px 17px 3px;
+				}
+			}
+
+			a {
+				color: lighten(@onl-bg-color, 60%);
+				font-size: 12px;
+				font-weight: bold;
+
+				&:hover,
+				&:focus {
+					text-decoration: none;
+				}
+			}
+
+			span {
+				display: block;
+				font-size: 18px;
+				font-weight: normal;
+			}
+
+		}
+	}
+
+	// Over navbar left nav
+	.onl-nav {
+		padding-left: 0;
+		list-style: none;
+
+		ul {
+			padding-left: 0;
+			list-style: none;
+		}
+
+		li {
+			position: relative;
+			//border-bottom: 1px solid darken(@onl-bg-color, 5%);
+
+			a {
+				display: block;
+				color: #EEE;
+				outline: 0;
+				padding: 15px 25px 14px;
+				font-size: 14px;
+				color: lighten(@onl-bg-color, 60%);
+
+				&:hover,
+				&:focus {
+					background-color: darken(@onl-bg-color, 1%);
+				}
+
+				> .onl-link-icon {
+					padding-right: 8px;
+				}
+
+				> .onl-link-text {
+
+				}
+
+				> .onl-btn-sub-collapse {
+					position: absolute;
+					right: 25px;
+					top: 20px;
+				}
+
+				> .badge {
+					position: absolute;
+					right: 24px;
+					top: 16px;
+					padding: 3px 10px;
+					color: @onl-bg-color;
+					background-color: @white;
+					border-radius: 50%;
+				}
+
+				&:hover,
+				&:focus {
+					color: #eee;
+					text-decoration: none;
+				}
+
+				&.collapsed {
+					.onl-btn-sub-collapse {
+						.rotate(180deg);
+					}
+				}
+
+			} // a
+
+			// Active class
+			&.active {
+				> a {
+					background-color: lighten(@onl-bg-color, 5%);
+					.box-shadow(inset 3px 0 0 @onl-link-left-border-color);
+				}
+			}
+
+		} // li
+	} // .onl-nav
+
+	// Sub nav level 1
+	.onl-sub-one {
+		background-color: @onl-sub-one-bg-color;
+
+		> li {
+			border-top: 1px solid @onl-sub-one-bg-color;
+
+			a {
+				display: block;
+				color: @onl-sub-one-text-color;
+
+				&:hover,
+				&:focus {
+					color: #eee;
+					background-color: darken(@onl-sub-one-bg-color, 2%);
+					.box-shadow(0 0 0);
+				}
+
+				> .onl-link-icon {
+					padding-right: 8px;
+				}
+
+				> .onl-link-text {
+				}
+
+				> .badge {
+					border: 1px solid darken(@ont-bg-color, 0%);
+				}
+
+			}
+		}
+	} // .onl-sub-one
+
+	// Sub nav level 2
+	.onl-sub-two {
+		background-color: @onl-sub-two-bg-color;
+
+		> li {
+			border-top: 1px solid @onl-sub-two-bg-color;
+
+			a {
+				color: @onl-sub-two-text-color;
+
+				&:hover,
+				&:focus {
+					background-color: darken(@onl-sub-two-bg-color, 2%);
+				}
+
+				> .badge {
+					border: 1px solid darken(@onl-sub-two-bg-color, 2%);
+				}
+
+			}
+		}
+	} // .onl-sub-two
+
+	// Over navbar left charts
+	.onl-charts {
+		margin-top: 30px;
+		padding: 25px;
+
+		.chart-name {
+			text-transform: uppercase;
+			color: lighten(@onl-bg-color, 60%);
+			font-size: 12px;
+		}
+	}
+
+} // .over-navbar-left
+
+/* Content
+/ -------------------------------------------------- */
+.content-wrap {
+	position: relative;
+	margin-right: 0;
+	.transition(all @transition-period);
+
+	// Define content effect when the left menu toggle
+	  &.onl-push {
+	  	.translate(-@onl-width, 0);
+	  }
+
+	  &.onl-overlay {
+
+	  }
+
+	  &.onl-darken {
+	  	&:before {
+	  		background-color: #000;
+	  		.opacity(.8);
+	  		z-index: 99;
+	  	}
+	  }
+
+	  &.onl-opacity {
+	  	.opacity(.5);
+	  }
+
+	// This one is only for darken effect
+	&:before {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		.transition(all @transition-period);
+	}
+
+	// Page info
+	.page-info {
+		position: relative;
+		background-color: @page-info-bg-color;
+		border-bottom: 1px solid @ont-border-color;
+		padding: 16px 0px 5px;
+		font-size: 16px;
+		color: @page-info-text-color;
+
+		.sub-info {
+			position: absolute;
+			right: 15px;
+			color: @sub-info-text-color;
+
+			@media(max-width: @screen-sm) {
+				position: relative;
+				right: auto;
+			}
+		}
+
+		// Bottom arrow
+		&:after {
+			position: absolute;
+			top: 53px;
+			left: 30px;
+			display: inline-block;
+			border-right: 8px solid rgba(0, 0, 0, 0);
+			border-top: 8px solid @page-info-bg-color;
+			border-left: 8px solid rgba(0, 0, 0, 0);
+			content: '';
+		}
+	}
+
+} // .content-wrap 

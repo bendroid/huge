@@ -1,11 +1,10 @@
-<div class="container">
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
     <!-- login box on left side -->
     <div class="login-box" style="width: 50%; display: block;">
-        <h2>Register a new account</h2>
+        <h4>Register a new account</h4>
 
         <!-- register form -->
         <form method="post" action="<?php echo Config::get('URL'); ?>register/register_action">
@@ -27,7 +26,7 @@
             <input type="submit" value="Register" />
         </form>
     </div>
-</div>
+
 <div class="container">
     <p style="display: block; font-size: 11px; color: #999;">
         Please note: This captcha will be generated when the img tag requests the captcha-generation

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+		<title>Over - Bootstrap Side Navbar Documentation</title>
+		<!-- Framework CSS -->
+		<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+		<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+		<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+		<style type="text/css" media="screen">
+			p, table, hr, .box { margin-bottom:25px; }
+			.box p { margin-bottom:10px; }
+		</style>
+</head>
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Over - Bootstrap Side Navbar &rdquo; Documentation by &ldquo;CodBits&rdquo; v 1.2</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Over - Bootstrap Side Navbar &rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 01/12/2015 ,<br>
+					<!-- Updated: 01/06/2014 ,<br> -->
+					By: CodBits<br>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my product. If you have any questions that are beyond the scope of this help file, please feel free to email via my profile page contact form <a href="http://codecanyon.net/user/CodBits">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+
+		<p class="large center">Over is a creative top and side navbar / menu which is best for admin sites that are user base. In this navbar you can show the user info and some links and dropdowns to make it easy to go through your admin site.</p>
+
+		<h2>1 effects</h2>
+		<p>There is 1 effect when the left navbar toggles at the moment which is called push. In the coming version, new effects will be released. </p>
+
+    <hr>
+
+    <h3>Some points:</h3>
+    <ul>
+      <li>Both of these folder uses the same HTML codes. The difference is in <code>styles.css</code> and <code>scripts.js</code>. I recommend you to open both of them and compare them.</li>
+      <li>If you are going to change background, text colors, you can simply use the LESS and change the only <code>@ont-bg-color</code> in <code>variables-custom.less</code> to any color you want and the rest of them will be created automatically.</li>
+      <li>Both default Bootstrap icons and font awesome icons are supported.</li>
+      <li>All the content and navbars should be inside a div called <code>main-wrap</code></li>
+      <li><strong>ont</strong> is the abbreviation of <strong>Over Navbar Top</strong></li>
+      <li><strong>onl</strong> is the abbreviation of <strong>Over Navbar Left</strong></li>
+    </ul>
+		<pre>
+
+&lt;div class="main-wrap"&gt;
+  &lt;!-- Over Navbar Left --&gt;
+  &lt;div class="over-navbar-left onl-hide"&gt;
+    &lt;div class="onl-user"&gt;
+      &lt;img src="img/avatar.jpg" class="onl-avatar" alt="Reardestani avatar"&gt;
+      &lt;div class="btn-group" role="group" aria-label="Button group with nested dropdown"&gt;
+        &lt;button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false"&gt;
+            CodBits &nbsp;
+            &lt;span class="fa fa-angle-down"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupDrop1"&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Earning&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="active"&gt;&lt;a href="#"&gt;Active link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;p class="user-title"&gt;Creative Designer&lt;/p&gt;
+      &lt;div class="user-statistics"&gt;
+        &lt;ul class="list-inline"&gt;
+          &lt;li&gt;&lt;a href="#"&gt;&lt;span class="fa fa-trophy"&gt;&lt;/span&gt;999&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;&lt;span class="fa fa-tint"&gt;&lt;/span&gt;1.4K&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;&lt;span class="fa fa-briefcase"&gt;&lt;/span&gt;47&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt; &lt;!-- /.onl-data --&gt;
+    
+    &lt;ul class="onl-nav"&gt;
+      &lt;li&gt;
+        &lt;a class="collapsed" data-toggle="collapse" href="#collapseStatistics" aria-expanded="false" aria-controls="collapseStatistics"&gt;
+          &lt;span class="glyphicon glyphicon-stats onl-link-icon"&gt;&lt;/span&gt;
+          &lt;span class="onl-link-text"&gt;Statistics&lt;/span&gt;
+          &lt;span class="fa fa-angle-up onl-btn-sub-collapse"&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;!-- Dropdown level one --&gt;
+        &lt;ul class="onl-sub-one collapse" id="collapseStatistics"&gt;
+          &lt;li&gt;
+            &lt;a href="#"&gt;
+              &lt;span class="fa fa-clock-o onl-link-icon"&gt;&lt;/span&gt;
+              &lt;span class="onl-link-text"&gt;Daily&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href="#"&gt;
+              &lt;span class="fa fa-history onl-link-icon"&gt;&lt;/span&gt;
+              &lt;span class="onl-link-text"&gt;Annual&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="#"&gt;
+          &lt;span class="fa fa-database onl-link-icon"&gt;&lt;/span&gt;
+          &lt;span class="onl-link-text"&gt;UI kit&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a class="collapsed" data-toggle="collapse" href="#collapseLevelOne" aria-expanded="false" aria-controls="collapseLevelOne"&gt;
+          &lt;span class="fa fa-th onl-link-icon"&gt;&lt;/span&gt;
+          &lt;span class="onl-link-text"&gt;Apps&lt;/span&gt;
+          &lt;span class="fa fa-angle-up onl-btn-sub-collapse"&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;!-- Dropdown level one --&gt;
+        &lt;ul class="onl-sub-one collapse" id="collapseLevelOne"&gt;
+          &lt;li&gt;
+            &lt;a class="collapsed" data-toggle="collapse" href="#collapseLevelTwo" aria-expanded="false" aria-controls="collapseLevelTwo"&gt;
+              &lt;span class="fa fa-android onl-link-icon"&gt;&lt;/span&gt;
+              &lt;span class="onl-link-text"&gt;Android&lt;/span&gt;
+              &lt;span class="fa fa-angle-up onl-btn-sub-collapse"&gt;&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;!-- Dropdown level two --&gt;
+            &lt;ul class="onl-sub-two collapse" id="collapseLevelTwo"&gt;
+              &lt;li&gt;
+                &lt;a href="#"&gt;
+                  &lt;span class="fa fa-circle-o onl-link-icon"&gt;&lt;/span&gt;
+                  &lt;span class="onl-link-text"&gt;Angry Bird&lt;/span&gt;
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a href="#"&gt;
+                  &lt;span class="fa fa-circle-o onl-link-icon"&gt;&lt;/span&gt;
+                  &lt;span class="onl-link-text"&gt;Clash of Clans&lt;/span&gt;
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href="#"&gt;
+              &lt;span class="fa fa-apple onl-link-icon"&gt;&lt;/span&gt;
+              &lt;span class="onl-link-text"&gt;IOS&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="#"&gt;
+          &lt;span class="fa fa-user onl-link-icon"&gt;&lt;/span&gt;
+          &lt;span class="onl-link-text"&gt;Customers&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href="#"&gt;
+          &lt;span class="fa fa-cogs onl-link-icon"&gt;&lt;/span&gt;
+          &lt;span class="onl-link-text"&gt;Settings&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt; &lt;!-- /.onl-nav --&gt;
+
+    &lt;div class="onl-charts"&gt;
+      &lt;ul class="list-unstyled"&gt;
+        &lt;li&gt;
+          &lt;p class="bar"&gt;4,5,3,6,8,5,1,5,6,15&lt;/p&gt;
+          &lt;p class="chart-name"&gt;Sales&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;p class="bar"&gt;4,5,8,6,2,5,12,5,7,9&lt;/p&gt;
+          &lt;p class="chart-name"&gt;Views&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;p class="bar"&gt;5,8,2,13,5,9,12,13,15,19&lt;/p&gt;
+          &lt;p class="chart-name"&gt;Downloads&lt;/p&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      
+    &lt;/div&gt; &lt;!-- /.onl-charts --&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Enter your page content below here --&gt;
+  &lt;!-- Available effects: onl-push, onl-overlay, onl-darken, onl-opacity --&gt;
+  &lt;div class="content-wrap" data-effect="onl-push"&gt;
+    &lt;nav class="navbar navbar-static-top over-navbar-top"&gt;
+      &lt;div class="container-fluid"&gt;
+        &lt;!-- Brand and toggle get grouped for better mobile display --&gt;
+        &lt;div class="navbar-header"&gt;
+          &lt;button type="button" class="onl-btn-toggle navbar-toggle"&gt;
+            &lt;span class="fa fa-navicon"&gt;&lt;/span&gt;
+          &lt;/button&gt;
+          &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ont-collapse"&gt;
+            &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+            &lt;span class="fa fa-ellipsis-v"&gt;&lt;/span&gt;
+          &lt;/button&gt;
+          &lt;a class="navbar-brand" href="#"&gt;DATA &lt;span&gt;PRO&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+        &lt;div id="ont-collapse" class="collapse navbar-collapse"&gt;
+          &lt;ul class="nav navbar-nav navbar-right"&gt;     
+            &lt;li&gt;
+              &lt;a href="#"&gt;&lt;span class="fa fa-sliders"&gt;&lt;/span&gt;&lt;/a&gt;
+              &lt;span class="notification"&gt;3&lt;/span&gt;
+            &lt;/li&gt;     
+            &lt;li&gt;
+              &lt;a href="#"&gt;&lt;span class="fa fa-newspaper-o"&gt;&lt;/span&gt;&lt;/a&gt;
+              &lt;span class="notification success"&gt;9&lt;/span&gt;
+            &lt;/li&gt;     
+            &lt;li&gt;
+              &lt;a href="#"&gt;&lt;span class="fa fa-calendar"&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;  
+            &lt;li class="hidden-xs"&gt;
+              &lt;a href="#" class="onl-btn-toggle"&gt;&lt;span class="fa fa-navicon"&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;   
+          &lt;/ul&gt;
+        &lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+      &lt;/div&gt;&lt;!-- /.container-fluid --&gt;
+    &lt;/nav&gt;
+    &lt;div class="page-info"&gt;
+      &lt;div class="container-fluid"&gt;
+        &lt;p&gt;
+          &lt;span class="hidden-xs"&gt;Check out the data in chart&lt;/span&gt;
+          &lt;span class="sub-info"&gt;
+            &lt;span class="glyphicon glyphicon-stats"&gt;&lt;/span&gt; &nbsp; Statistics
+          &lt;/span&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="container-fluid"&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt; &lt;!-- /.main-wrap --&gt;
+		</pre>
+
+		<hr>
+
+		<p class="append-bottom alt large">
+			<strong>CodBits</strong>
+			<a href="mailto:support@codbits.com" style="float: right;">Need support?</a>
+		</p>
+
+	</div><!-- end div .container -->
+</body>
+</html>

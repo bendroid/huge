@@ -1,11 +1,9 @@
-<div class="container">
-    <h1>IndexController/index</h1>
-    <div class="box">
+<h4>Home</h4>
 
         <!-- echo out the system feedback (error and success messages) -->
         <?php $this->renderFeedbackMessages(); ?>
 
-        <h3>What happens here ?</h3>
+        <h4>What happens here ?</h4>
         <p>
             This is the homepage. As no real URL-route (like /register/index) is provided, the app uses the default
             controller and the default action, defined in application/config/config.php, by default it's
@@ -14,5 +12,3 @@
             ($this->view->render('index/index');) that loads application/view/index/index.php, which is basically
             this text you are reading right now.
         </p>
-    </div>
-</div>

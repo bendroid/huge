@@ -46,13 +46,13 @@ class View
             }
         }
 
-        require Config::get('PATH_VIEW') . '_templates/header.php';
+        require Config::get('PATH_VIEW') . '_templates/dashnav.php';
 
         foreach($filenames as $filename) {
             require Config::get('PATH_VIEW') . $filename . '.php';
         }
 
-        require Config::get('PATH_VIEW') . '_templates/footer.php';
+        require Config::get('PATH_VIEW') . '_templates/dashfoot.php';
     }
 
     /**
@@ -69,6 +69,61 @@ class View
         }
 
         require Config::get('PATH_VIEW') . $filename . '.php';
+    }
+
+    /**
+     * CUSTOM RENDERS
+     *
+    */
+    /**
+     * PLAIN MATERIALIZE NO NAVBAR OR FOOTER
+     *
+    */
+    public function renderPlainMat($filename, $data = null)
+    {
+        if ($data) {
+            foreach ($data as $key => $value) {
+                $this->{$key} = $value;
+            }
+        }
+
+        require Config::get('PATH_VIEW') . '_templates/nonav.php';
+        require Config::get('PATH_VIEW') . $filename . '.php';
+        require Config::get('PATH_VIEW') . '_templates/nofoot.php';
+    }
+
+    /**
+     * PLAIN DASH NO NAVBAR OR FOOTER
+     *
+    */
+    public function renderPlainDash($filename, $data = null)
+    {
+        if ($data) {
+            foreach ($data as $key => $value) {
+                $this->{$key} = $value;
+            }
+        }
+
+        require Config::get('PATH_VIEW') . '_templates/dashnonav.php';
+        require Config::get('PATH_VIEW') . $filename . '.php';
+        require Config::get('PATH_VIEW') . '_templates/dashnofoot.php';
+    }
+
+    /**
+     * DASHNAV
+     *
+    */
+    public function renderDash($filename, $data = null)
+    {
+        if ($data) {
+            foreach ($data as $key => $value) {
+                $this->{$key} = $value;
+            }
+        }
+
+        require Config::get('PATH_VIEW') . '_templates/dashnav.php';
+        require Config::get('PATH_VIEW') . $filename . '.php';
+        require Config::get('PATH_VIEW') . '_templates/dashfoot.php';
     }
 
     /**

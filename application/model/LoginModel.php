@@ -61,7 +61,7 @@ class LoginModel
 
         // successfully logged in, so we write all necessary data into the session and set "user_logged_in" to true
         self::setSuccessfulLoginIntoSession(
-            $result->user_id, $result->user_name, $result->user_email, $result->user_account_type
+            $result->user_id, $result->user_name, $result->first_name, $result->last_name, $result->full_name, $result->mobile_phone, $result->home_phone, $result->work_phone, $result->user_fb, $result->user_twitter, $result->user_github, $result->user_gp, $result->user_street, $result->user_city, $result->user_state, $result->user_zip, $result->user_email, $result->user_account_type
         );
 
         // return true to make clear the login was successful
@@ -186,7 +186,7 @@ class LoginModel
         // if user with that id and exactly that cookie token exists in database
         if ($result) {
             // successfully logged in, so we write all necessary data into the session and set "user_logged_in" to true
-            self::setSuccessfulLoginIntoSession($result->user_id, $result->user_name, $result->user_email, $result->user_account_type);
+            self::setSuccessfulLoginIntoSession($result->user_id, $result->user_name, $result->first_name, $result->last_name, $result->full_name, $result->mobile_phone, $result->home_phone, $result->work_phone, $result->user_fb, $result->user_twitter, $result->guser_github, $result->user_gp, $result->user_street, $result->user_city, $result->user_state, $result->user_zip, $result->user_email, $result->user_account_type);
             // save timestamp of this login in the database line of that user
             self::saveTimestampOfLoginOfUser($result->user_name);
 
@@ -224,7 +224,7 @@ class LoginModel
      * @param $user_email
      * @param $user_account_type
      */
-    public static function setSuccessfulLoginIntoSession($user_id, $user_name, $user_email, $user_account_type)
+    public static function setSuccessfulLoginIntoSession($user_id, $user_name, $first_name, $last_name, $full_name, $mobile_phone, $home_phone, $work_phone, $user_fb, $user_twitter, $user_github, $user_gp, $user_street, $user_city, $user_state, $user_zip, $user_email, $user_account_type)
     {
         Session::init();
 
@@ -237,6 +237,20 @@ class LoginModel
 
         Session::set('user_id', $user_id);
         Session::set('user_name', $user_name);
+		Session::set('first_name', $first_name);
+		Session::set('last_name', $last_name);
+		Session::set('full_name', $full_name);
+		Session::set('mobile_phone', $mobile_phone);
+		Session::set('home_phone', $home_phone);
+		Session::set('work_phone', $work_phone);
+		Session::set('user_fb', $user_fb);
+		Session::set('user_twitter', $user_twitter);
+		Session::set('user_github', $user_github);
+		Session::set('user_gp', $user_gp);
+		Session::set('user_street', $user_street);
+		Session::set('user_city', $user_city);
+		Session::set('user_state', $user_state);
+		Session::set('user_zip', $user_zip);
         Session::set('user_email', $user_email);
         Session::set('user_account_type', $user_account_type);
         Session::set('user_provider_type', 'DEFAULT');

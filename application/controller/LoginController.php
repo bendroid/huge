@@ -26,7 +26,7 @@ class LoginController extends Controller
             Redirect::home();
         } else {
             $data = array('redirect' => Request::get('redirect') ? Request::get('redirect') : NULL);
-            $this->View->render('login/index', $data);
+            $this->View->renderPlainMat('login/index', $data);
         }
     }
 
@@ -35,10 +35,11 @@ class LoginController extends Controller
      */
     public function login()
     {
-
         // check if csrf token is valid
         if (!Csrf::isTokenValid()) {
-            self::logout();
+            LoginModel::logout();
+            Redirect::home();
+            exit();
         }
 
         // perform the login method, put result (true or false) into $login_successful
@@ -92,7 +93,7 @@ class LoginController extends Controller
      */
     public function requestPasswordReset()
     {
-        $this->View->render('login/requestPasswordReset');
+        $this->View->renderPlainMat('login/requestPasswordReset');
     }
 
     /**
@@ -115,7 +116,7 @@ class LoginController extends Controller
         // check if this the provided verification code fits the user's verification code
         if (PasswordResetModel::verifyPasswordReset($user_name, $verification_code)) {
             // pass URL-provided variable to view to display them
-            $this->View->render('login/resetPassword', array(
+            $this->View->renderPlainMat('login/resetPassword', array(
                 'user_name' => $user_name,
                 'user_password_reset_hash' => $verification_code
             ));

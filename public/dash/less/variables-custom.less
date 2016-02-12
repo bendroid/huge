@@ -1,0 +1,106 @@
+//
+// Dash navbar custom variables 
+// --------------------------------------------------
+
+// Dash top navbar (dnt) ----------------------------
+	
+	// Background color
+		@dnt-bg-color:                            #2196F3; 
+
+	// Link colors
+		@dnt-link-color:                 					lighten(@dnt-bg-color, 35%);
+		@dnt-link-hover-color:           					darken(@dnt-link-color, 40%);
+
+	// Transition
+		@transition-period:              					300ms;
+
+	// Brand
+		@dnt-brand-link-color:                    lighten(@dnt-link-color, 45%);
+		@dnt-brand-link-hover-color:              lighten(@dnt-brand-link-color, 55%);
+
+	// Toggle buttons
+		@dnt-toggle-btn-color:                    lighten(@dnt-bg-color, 35%);
+
+	// Dropdown menu (dm), small devices (sd)
+		@dnt-dm-li-border-bottom-color:           #EEE;
+		@dnt-dm-link-color: 						          #333;
+		@dnt-dm-link-hover-bg-color:              #F5F5F5;
+
+		@dnt-dm-link-active-bg-color: 			 			@dnt-dm-link-hover-bg-color;
+		@dnt-dm-link-active-color:                @dnt-dm-link-color;
+		@dnt-dm-link-active-hover-bg-color:  			@dnt-dm-link-hover-bg-color;
+		@dnt-dm-link-active-hover-color: 					@dnt-dm-link-color;
+
+		@dnt-dm-sd-link-active-bg-color: 			 		darken(@dnt-bg-color, 5%);
+		@dnt-dm-sd-link-active-color:             @dnt-link-color;
+		@dnt-dm-sd-link-active-hover-bg-color:  	darken(@dnt-bg-color, 5%);
+		@dnt-dm-sd-link-active-hover-color: 			@dnt-link-color;
+
+		@dnt-dm-sd-li-border-bottom-color: 				lighten(@dnt-bg-color, 5%);
+		@dnt-dm-sd-link-color:           					@dnt-link-color;
+		@dnt-dm-sd-link-hover-bg-color:     			darken(@dnt-bg-color, 5%);
+
+// Dash navbar left (dnl) ---------------------------
+	
+	// Size
+		@dnl-width:                      					250px;
+	
+	// Background color
+		@dnl-bg-color: 														#EFF0F1;
+
+	// Nav title (nt)
+		@dnl-nt-color: 														darken(@dnl-bg-color, 30%);
+		@dnl-nt-border-bottom-color: 							darken(@dnl-bg-color, 5%);
+
+	// Link color
+		@dnl-link-color: 													darken(@dnl-bg-color, 50%);
+		@dnl-link-font-size: 											15px;
+
+	// Link hover
+		@dnl-link-hover-color: 										lighten(@dnl-bg-color, 15%);
+		@dnl-link-hover-bg-color: 								darken(@dnl-bg-color, 15%);
+		@dnl-link-hover-left-border-color: 				darken(@dnl-bg-color, 50%);
+
+	// Link active
+		@dnl-link-active-bg-color: 								@dnl-link-hover-bg-color;
+		@dnl-link-active-left-border-color: 			@dnl-link-hover-left-border-color;
+
+	// badge 
+		@dnl-badge-color: 												@dnl-link-color;
+		@dnl-badge-border: 												1px solid @dnl-link-color;
+		@dnl-badge-bg-color: 											transparent;
+
+	// Sub nav level 1 (snl1)
+		@dnl-snl1-bg-color: 											@dnt-bg-color;
+
+		@dnl-snl1-li-border-color: 								1px solid darken(@dnt-bg-color, 2%);
+
+		@dnl-snl1-link-color: 										#EEE;
+
+		@dnl-snl1-link-hover-color: 							#EEE;
+		@dnl-snl1-link-hover-bg-color: 						darken(@dnt-bg-color, 2%);
+		@dnl-snl1-link-left-border-color: 				darken(@dnt-bg-color, 2%);
+
+		@dnl-snl1-link-active-bg-color: 					darken(@dnt-bg-color, 2%);
+		@dnl-snl1-link-active-left-border-color: 	darken(@dnt-bg-color, 2%); 
+
+		@dnl-snl1-badge-color: 										#EEE;
+		@dnl-snl1-badge-border: 									1px solid darken(@dnt-bg-color, 10%);
+		@dnl-snl1-badge-bg-color: 								transparent;
+
+	// Sub nav level 2 (snl2)
+		@dnl-snl2-bg-color: 											darken(@dnt-bg-color, 5%);
+
+		@dnl-snl2-li-border-color: 								darken(@dnt-bg-color, 7%);
+
+		@dnl-snl2-link-color: 										#EEE;
+		@dnl-snl2-link-hover-color: 							#EEE;
+		@dnl-snl2-link-hover-bg-color: 						darken(@dnt-bg-color, 7%);
+		@dnl-snl2-link-left-border-color: 				darken(@dnt-bg-color, 7%);
+
+		@dnl-snl2-link-active-bg-color: 					darken(@dnt-bg-color, 7%);
+		@dnl-snl2-link-active-left-border-color: 	darken(@dnt-bg-color, 7%); 
+
+		@dnl-snl2-badge-color: 										#A7A9AC;
+		@dnl-snl2-badge-border: 									1px solid darken(@dnt-bg-color, 0%);
+		@dnl-snl2-badge-bg-color: 								transparent;

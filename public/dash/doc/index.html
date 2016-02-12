@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+		<title>Dash - Responsive Bootstrap Dashboard Navbar Documentation</title>
+		<!-- Framework CSS -->
+		<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+		<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+		<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+		<style type="text/css" media="screen">
+			p, table, hr, .box { margin-bottom:25px; }
+			.box p { margin-bottom:10px; }
+		</style>
+</head>
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Dash - Responsive Bootstrap Dashboard Navbar &rdquo; Documentation by &ldquo;CodBits&rdquo; v 1.4</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Dash - Responsive Bootstrap Dashboard Navbar &rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 01/04/2015 ,<br>
+					Updated: 03/12/2015 ,<br>
+					By: CodBits<br>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my product. If you have any questions that are beyond the scope of this help file, please feel free to email via my profile page contact form <a href="http://codecanyon.net/user/CodBits">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+
+		<p class="large center">Dash is a Bootstrap dashboard navbar. It is responsive, minimal, easy to use, HTML5 valid and coded with LESS. You can create unlimited color variations only by changing one color. For the initial version we have created two effects for sliding.</p>
+
+		<h2>3 effects</h2>
+		<p>There are 3 effects when the left navbar toggles. Push, Overlay, Opacity. To select one of this effect, find <code>content-wrap</code> div and change the <code>dat-effect</code> to one of these names: dnl-push, dnl-overlay, dnl-opacity</p>
+
+    <hr>
+
+    <h3>Some points:</h3>
+    <ul>
+      <li>If you are going to change background, text colors, you can simply use the LESS and change the only <code>@dnt-bg-color</code> in <code>variables-custom.less</code> to any color you want and the rest of them will be created automatically.</li>
+      <li>Bot default Bootstrap icons and font awesome icons are supported.</li>
+      <li>The dropdown menu has been customized for the avatar, if you are going to use it in other way, you should customize the CSS a little bit.</li>
+      <li>All the content and navbars should be inside a dive called <code>main-wrap</code></li>
+      <li><strong>dnt</strong> is the abbreviation of <strong>Dash Navbar Top</strong></li>
+      <li><strong>dnl</strong> is the abbreviation of <strong>Dash Navbar Left</strong></li>
+    </ul>
+		<pre>
+
+&lt;div class="main-wrap"&gt;
+  &lt;header&gt;
+    &lt;!-- Dash Navbar Top --&gt;
+    &lt;nav class="navbar navbar-inverse navbar-static-top dash-navbar-top"&gt;
+      &lt;div class="container-fluid"&gt;
+        &lt;!-- Brand and toggle get grouped for better mobile display --&gt;
+        &lt;div class="navbar-header"&gt;
+          &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dnt-collapse"&gt;
+            &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+            &lt;span class="fa fa-ellipsis-v"&gt;&lt;/span&gt;
+          &lt;/button&gt;
+          &lt;button class="dnl-btn-toggle hidden-md hidden-lg hidden-sm"&gt;
+            &lt;span class="fa fa-bars"&gt;&lt;/span&gt;
+          &lt;/button&gt;
+          &lt;a class="navbar-brand" href="#"&gt;DASH &lt;span&gt;beta&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+        &lt;div class="collapse navbar-collapse" id="dnt-collapse"&gt;
+          &lt;ul class="nav navbar-nav navbar-right navbar-avatar"&gt;
+            &lt;li class="dropdown"&gt;
+              &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"&gt;&lt;img src="img/avatar.jpg" class="dnt-avatar" alt="Reardestani avatar"&gt;&lt;/a&gt;
+              &lt;ul class="dropdown-menu" role="menu"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Standard &lt;span&gt;go pro&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Upload&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Logout&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;form class="navbar-form navbar-right dnt-navbar-form" role="search"&gt;
+            &lt;div class="form-group"&gt;
+              &lt;input type="text" class="form-control" placeholder="Search"&gt;
+            &lt;/div&gt;
+            &lt;button type="submit" class="btn"&gt;&lt;span class="fa fa-search"&gt;&lt;/span&gt;&lt;/button&gt;
+          &lt;/form&gt;  
+          &lt;ul class="nav navbar-nav navbar-right"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Support&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="dropdown"&gt;
+              &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"&gt;Dropdown &lt;span class="fa fa-angle-down"&gt;&lt;/span&gt;&lt;/a&gt;
+              &lt;ul class="dropdown-menu" role="menu"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Link 1 &lt;span&gt;LOL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;      
+        &lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+      &lt;/div&gt;&lt;!-- /.container-fluid --&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;section&gt;
+    &lt;!-- Dash Navbar Left --&gt;
+    &lt;div class="dash-navbar-left dnl-hide"&gt;
+      &lt;p class="dnl-nav-title"&gt;Home&lt;/p&gt;
+      &lt;ul class="dnl-nav"&gt;
+        &lt;li&gt;
+          &lt;a href="#"&gt;
+            &lt;span class="glyphicon glyphicon-stats dnl-link-icon"&gt;&lt;/span&gt;
+            &lt;span class="dnl-link-text"&gt;Statistics&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href="#"&gt;
+            &lt;span class="glyphicon glyphicon-folder-open dnl-link-icon"&gt;&lt;/span&gt;
+            &lt;span class="dnl-link-text"&gt;Pages&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href="#"&gt;
+            &lt;span class="glyphicon glyphicon-comment dnl-link-icon"&gt;&lt;/span&gt;
+            &lt;span class="dnl-link-text"&gt;Comments&lt;/span&gt;
+            &lt;span class="badge"&gt;4&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a class="collapsed" data-toggle="collapse" href="#collapseLevelOne" aria-expanded="false" aria-controls="collapseLevelOne"&gt;
+          &lt;span class="fa fa-sort-amount-desc dnl-link-icon"&gt;&lt;/span&gt;
+          &lt;span class="dnl-link-text"&gt;Dropdown level 1&lt;/span&gt;
+          &lt;span class="fa fa-angle-up dnl-btn-sub-collapse"&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;!-- Dropdown level one --&gt;
+        &lt;ul class="dnl-sub-one collapse" id="collapseLevelOne"&gt;
+          &lt;li&gt;
+            &lt;a href="#"&gt;
+              &lt;span class="fa fa-slack dnl-link-icon"&gt;&lt;/span&gt;
+              &lt;span class="dnl-link-text"&gt;Level 1&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a class="collapsed" data-toggle="collapse" href="#collapseLevelTwo" aria-expanded="false" aria-controls="collapseLevelTwo"&gt;
+              &lt;span class="fa fa-level-down dnl-link-icon"&gt;&lt;/span&gt;
+              &lt;span class="dnl-link-text"&gt;Dropdown level 2&lt;/span&gt;
+              &lt;span class="fa fa-angle-up dnl-btn-sub-collapse"&gt;&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;!-- Dropdown level two --&gt;
+            &lt;ul class="dnl-sub-two collapse" id="collapseLevelTwo"&gt;
+              &lt;li&gt;
+                &lt;a href="#"&gt;
+                  &lt;span class="fa fa-wifi dnl-link-icon"&gt;&lt;/span&gt;
+                  &lt;span class="dnl-link-text"&gt;Level 2&lt;/span&gt;
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a href="#"&gt;
+                  &lt;span class="fa fa-wifi dnl-link-icon"&gt;&lt;/span&gt;
+                  &lt;span class="dnl-link-text"&gt;Level 2&lt;/span&gt;
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a href="#"&gt;
+                  &lt;span class="fa fa-wifi dnl-link-icon"&gt;&lt;/span&gt;
+                  &lt;span class="dnl-link-text"&gt;Level 2&lt;/span&gt;
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href="#"&gt;
+              &lt;span class="fa fa-slack dnl-link-icon"&gt;&lt;/span&gt;
+              &lt;span class="dnl-link-text"&gt;Level 1&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/div&gt;
+    &lt;!-- Enter your page content below here --&gt;
+    &lt;div class="content-wrap"&gt;
+      &lt;div class="container-fluid"&gt;
+        // Content here
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+		</pre>
+
+		<hr>
+
+		<p class="append-bottom alt large">
+			<strong>CodBits</strong>
+			<a href="mailto:support@codbits.com" style="float: right;">Need support?</a>
+		</p>
+
+	</div><!-- end div .container -->
+</body>
+</html>

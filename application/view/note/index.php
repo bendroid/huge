@@ -1,11 +1,9 @@
-<div class="container">
-    <h1>NoteController/index</h1>
-    <div class="box">
+<h4>Notes</h4>
 
         <!-- echo out the system feedback (error and success messages) -->
         <?php $this->renderFeedbackMessages(); ?>
 
-        <h3>What happens here ?</h3>
+        <h4>What happens here ?</h4>
         <p>
             This is just a simple CRUD implementation. Creating, reading, updating and deleting things.
         </p>
@@ -40,5 +38,3 @@
             <?php } else { ?>
                 <div>No notes yet. Create some !</div>
             <?php } ?>
-    </div>
-</div>

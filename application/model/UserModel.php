@@ -19,7 +19,7 @@ class UserModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT user_id, user_name, user_email, user_active, user_has_avatar, user_deleted FROM users";
+        $sql = "SELECT user_id, user_name, first_name, last_name, full_name, mobile_phone, home_phone, work_phone, user_fb, user_twitter, user_github, user_gp, user_street, user_city, user_state, user_zip, user_email, user_active, user_has_avatar, user_deleted FROM users";
         $query = $database->prepare($sql);
         $query->execute();
 
@@ -35,6 +35,20 @@ class UserModel
             $all_users_profiles[$user->user_id] = new stdClass();
             $all_users_profiles[$user->user_id]->user_id = $user->user_id;
             $all_users_profiles[$user->user_id]->user_name = $user->user_name;
+            $all_users_profiles[$user->user_id]->first_name = $user->first_name;
+            $all_users_profiles[$user->user_id]->last_name = $user->last_name;
+            $all_users_profiles[$user->user_id]->full_name = $user->full_name;
+            $all_users_profiles[$user->user_id]->mobile_phone = $user->mobile_phone;
+            $all_users_profiles[$user->user_id]->home_phone = $user->home_phone;
+            $all_users_profiles[$user->user_id]->work_phone = $user->work_phone;
+            $all_users_profiles[$user->user_id]->user_fb = $user->user_fb;
+            $all_users_profiles[$user->user_id]->user_twitter = $user->user_twitter;
+            $all_users_profiles[$user->user_id]->user_github = $user->user_github;
+            $all_users_profiles[$user->user_id]->user_gp = $user->user_gp;
+            $all_users_profiles[$user->user_id]->user_street = $user->user_street;
+            $all_users_profiles[$user->user_id]->user_city = $user->user_city;
+            $all_users_profiles[$user->user_id]->user_state = $user->user_state;
+            $all_users_profiles[$user->user_id]->user_zip = $user->user_zip;
             $all_users_profiles[$user->user_id]->user_email = $user->user_email;
             $all_users_profiles[$user->user_id]->user_active = $user->user_active;
             $all_users_profiles[$user->user_id]->user_deleted = $user->user_deleted;
@@ -53,7 +67,7 @@ class UserModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT user_id, user_name, user_email, user_active, user_has_avatar, user_deleted
+        $sql = "SELECT user_id, user_name, first_name, last_name, full_name, mobile_phone, home_phone, work_phone, user_fb, user_twitter, user_github, user_gp, user_street, user_city, user_state, user_zip, user_email, user_active, user_has_avatar, user_deleted
                 FROM users WHERE user_id = :user_id LIMIT 1";
         $query = $database->prepare($sql);
         $query->execute(array(':user_id' => $user_id));
@@ -266,6 +280,375 @@ class UserModel
         return false;
     }
 
+/***************************************************
+EDITS
+****************************************************/
+
+    /**
+     * Writes new mobile phone address to database
+     *
+     * @param $user_id int user id
+     * @param $new_mobile_phone string new mobile phone address
+     *
+     * @return bool
+     */
+    public static function saveNewMobilePhone($user_id, $new_mobile_phone)
+    {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $query = $database->prepare("UPDATE users SET mobile_phone = :mobile_phone WHERE user_id = :user_id LIMIT 1");
+        $query->execute(array(':mobile_phone' => $new_mobile_phone, ':user_id' => $user_id));
+        $count = $query->rowCount();
+        if ($count == 1) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Writes new mobile phone address to database
+     *
+     * @param $user_id int user id
+     * @param $new_home_phone string new mobile phone address
+     *
+     * @return bool
+     */
+    public static function saveNewHomePhone($user_id, $new_home_phone)
+    {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $query = $database->prepare("UPDATE users SET home_phone = :home_phone WHERE user_id = :user_id LIMIT 1");
+        $query->execute(array(':home_phone' => $new_home_phone, ':user_id' => $user_id));
+        $count = $query->rowCount();
+        if ($count == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    
+    
+     /**
+     * Edit the user's mobile, provided in the editing form
+     *
+     * @param $new_mobile_phone string The new username
+     *
+     * @return bool success status
+     */
+    public static function editUserMobile($new_mobile_phone)
+    {
+        // new mobile phone same as old one ?
+        if ($new_mobile_phone == Session::get('mobile_phone')) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_SAME_AS_OLD_ONE'));
+            return false;
+        }
+
+        /*
+        // mobile phone cannot be empty and must be azAZ09 and 2-64 characters
+        if (!preg_match("/^[a-zA-Z0-9]{2,64}$/", $new_mobile_phone)) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_DOES_NOT_FIT_PATTERN'));
+            return false;
+        }
+        */
+
+        // clean the input, strip phone numbers longer than 64 chars (maybe fix this ?)
+        $new_mobile_phone = substr(strip_tags($new_mobile_phone), 0, 64);
+
+
+        $status_of_action = self::saveNewMobilePhone(Session::get('user_id'), $new_mobile_phone);
+        if ($status_of_action) {
+            Session::set('mobile_phone', $new_mobile_phone);
+            Session::add('feedback_positive', Text::get('FEEDBACK_MOBILE_PHONE_CHANGE_SUCCESSFUL'));
+            return true;
+        } else {
+            Session::add('feedback_negative', Text::get('FEEDBACK_UNKNOWN_ERROR'));
+            return false;
+        }
+    }
+    
+    
+    
+    /**
+     * Edit the user's home, provided in the editing form
+     *
+     * @param $new_home_phone string The new username
+     *
+     * @return bool success status
+     */
+    public static function editUserHome($new_home_phone)
+    {
+        // new home phone same as old one ?
+        if ($new_home_phone == Session::get('home_phone')) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_HOME_PHONE_SAME_AS_OLD_ONE'));
+            return false;
+        }
+
+        /*
+        // home phone cannot be empty and must be azAZ09 and 2-64 characters
+        if (!preg_match("/^[a-zA-Z0-9]{2,64}$/", $new_home_phone)) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_DOES_NOT_FIT_PATTERN'));
+            return false;
+        }
+        */
+
+        // clean the input, strip phone numbers longer than 64 chars (maybe fix this ?)
+        $new_home_phone = substr(strip_tags($new_home_phone), 0, 64);
+
+
+        $status_of_action = self::saveNewHomePhone(Session::get('user_id'), $new_home_phone);
+        if ($status_of_action) {
+            Session::set('home_phone', $new_home_phone);
+            Session::add('feedback_positive', Text::get('FEEDBACK_USERNAME_CHANGE_SUCCESSFUL'));
+            return true;
+        } else {
+            Session::add('feedback_negative', Text::get('FEEDBACK_UNKNOWN_ERROR'));
+            return false;
+        }
+    }
+    
+    
+    /**
+     * Edit the user's work, provided in the editing form
+     *
+     * @param $new_work_phone string The new work-phone
+     *
+     * @return bool success status
+     */
+    public static function editUserWork($new_work_phone)
+    {
+        // new username same as old one ?
+        if ($new_work_phone == Session::get('work_phone')) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_SAME_AS_OLD_ONE'));
+            return false;
+        }
+
+        /*
+        // username cannot be empty and must be azAZ09 and 2-64 characters
+        if (!preg_match("/^[a-zA-Z0-9]{2,64}$/", $new_work_phone)) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_DOES_NOT_FIT_PATTERN'));
+            return false;
+        }
+        */
+
+        // clean the input, strip phone numbers longer than 64 chars (maybe fix this ?)
+        $new_work_phone = substr(strip_tags($new_work_phone), 0, 64);
+
+
+        $status_of_action = self::saveNewUserWork(Session::get('user_id'), $new_work_phone);
+        if ($status_of_action) {
+            Session::set('work_phone', $new_work_phone);
+            Session::add('feedback_positive', Text::get('FEEDBACK_USERNAME_CHANGE_SUCCESSFUL'));
+            return true;
+        } else {
+            Session::add('feedback_negative', Text::get('FEEDBACK_UNKNOWN_ERROR'));
+            return false;
+        }
+    }
+    
+    /**
+     * Writes new work phone address to database
+     *
+     * @param $user_id int user id
+     * @param $new_work_phone string new work phone address
+     *
+     * @return bool
+     */
+    public static function saveNewUserWork($user_id, $new_work_phone)
+    {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $query = $database->prepare("UPDATE users SET work_phone = :work_phone WHERE user_id = :user_id LIMIT 1");
+        $query->execute(array(':work_phone' => $new_work_phone, ':user_id' => $user_id));
+        $count = $query->rowCount();
+        if ($count == 1) {
+            return true;
+        }
+        return false;
+    }
+    
+    
+    /**
+     * Edit the user's work, provided in the editing form
+     *
+     * @param $new_user_fb string The new user-fb
+     *
+     * @return bool success status
+     */
+    public static function editUserFB($new_user_fb)
+    {
+        // new username same as old one ?
+        if ($new_user_fb == Session::get('user_fb')) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_SAME_AS_OLD_ONE'));
+            return false;
+        }
+
+        /*
+        // username cannot be empty and must be azAZ09 and 2-64 characters
+        if (!preg_match("/^[a-zA-Z0-9]{2,64}$/", $new_user_fb)) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_DOES_NOT_FIT_PATTERN'));
+            return false;
+        }
+        */
+
+        // clean the input, strip fb numbers longer than 64 chars (maybe fix this ?)
+        $new_user_fb = substr(strip_tags($new_user_fb), 0, 64);
+
+
+        $status_of_action = self::saveNewUserFB(Session::get('user_id'), $new_user_fb);
+        if ($status_of_action) {
+            Session::set('user_fb', $new_user_fb);
+            Session::add('feedback_positive', Text::get('FEEDBACK_USERNAME_CHANGE_SUCCESSFUL'));
+            return true;
+        } else {
+            Session::add('feedback_negative', Text::get('FEEDBACK_UNKNOWN_ERROR'));
+            return false;
+        }
+    }
+    
+    /**
+     * Writes new work fb address to database
+     *
+     * @param $user_id int user id
+     * @param $new_user_fb string new work fb address
+     *
+     * @return bool
+     */
+    public static function saveNewUserFB($user_id, $new_user_fb)
+    {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $query = $database->prepare("UPDATE users SET user_fb = :user_fb WHERE user_id = :user_id LIMIT 1");
+        $query->execute(array(':user_fb' => $new_user_fb, ':user_id' => $user_id));
+        $count = $query->rowCount();
+        if ($count == 1) {
+            return true;
+        }
+        return false;
+    }
+    
+    
+    /**
+     * Edit the user's work, provided in the editing form
+     *
+     * @param $new_user_github string The new user-github
+     *
+     * @return bool success status
+     */
+    public static function editUserGH($new_user_github)
+    {
+        // new username same as old one ?
+        if ($new_user_github == Session::get('user_github')) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_SAME_AS_OLD_ONE'));
+            return false;
+        }
+
+        /*
+        // username cannot be empty and must be azAZ09 and 2-64 characters
+        if (!preg_match("/^[a-zA-Z0-9]{2,64}$/", $new_user_github)) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_DOES_NOT_FIT_PATTERN'));
+            return false;
+        }
+        */
+
+        // clean the input, strip github numbers longer than 64 chars (maybe fix this ?)
+        $new_user_github = substr(strip_tags($new_user_github), 0, 64);
+
+
+        $status_of_action = self::saveNewUserGH(Session::get('user_id'), $new_user_github);
+        if ($status_of_action) {
+            Session::set('user_github', $new_user_github);
+            Session::add('feedback_positive', Text::get('FEEDBACK_USERNAME_CHANGE_SUCCESSFUL'));
+            return true;
+        } else {
+            Session::add('feedback_negative', Text::get('FEEDBACK_UNKNOWN_ERROR'));
+            return false;
+        }
+    }
+    
+    /**
+     * Writes new work github address to database
+     *
+     * @param $user_id int user id
+     * @param $new_user_github string new work github address
+     *
+     * @return bool
+     */
+    public static function saveNewUserGH($user_id, $new_user_github)
+    {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $query = $database->prepare("UPDATE users SET user_github = :user_github WHERE user_id = :user_id LIMIT 1");
+        $query->execute(array(':user_github' => $new_user_github, ':user_id' => $user_id));
+        $count = $query->rowCount();
+        if ($count == 1) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Edit the user's work, provided in the editing form
+     *
+     * @param $new_user_twitter string The new twitter
+     *
+     * @return bool success status
+     */
+    public static function editUserTW($new_user_twitter)
+    {
+        // new username same as old one ?
+        if ($new_user_twitter == Session::get('user_twitter')) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_SAME_AS_OLD_ONE'));
+            return false;
+        }
+
+        /*
+        // username cannot be empty and must be azAZ09 and 2-64 characters
+        if (!preg_match("/^[a-zA-Z0-9]{2,64}$/", $new_user_twitter)) {
+            Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_DOES_NOT_FIT_PATTERN'));
+            return false;
+        }
+        */
+
+        // clean the input, strip github numbers longer than 64 chars (maybe fix this ?)
+        $new_user_twitter = substr(strip_tags($new_user_twitter), 0, 64);
+
+
+        $status_of_action = self::saveNewUserTW(Session::get('user_id'), $new_user_twitter);
+        if ($status_of_action) {
+            Session::set('user_twitter', $new_user_twitter);
+            Session::add('feedback_positive', Text::get('FEEDBACK_USERNAME_CHANGE_SUCCESSFUL'));
+            return true;
+        } else {
+            Session::add('feedback_negative', Text::get('FEEDBACK_UNKNOWN_ERROR'));
+            return false;
+        }
+    }
+    
+    /**
+     * Writes new work github address to database
+     *
+     * @param $user_id int user id
+     * @param $new_user_twitter string new work github address
+     *
+     * @return bool
+     */
+    public static function saveNewUserTW($user_id, $new_user_twitter)
+    {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $query = $database->prepare("UPDATE users SET user_twitter = :user_twitter WHERE user_id = :user_id LIMIT 1");
+        $query->execute(array(':user_twitter' => $new_user_twitter, ':user_id' => $user_id));
+        $count = $query->rowCount();
+        if ($count == 1) {
+            return true;
+        }
+        return false;
+    }
+
+/*******************************************************
+END EDITS
+*******************************************************/    
+
     /**
      * Gets the user's id
      *
@@ -299,7 +682,7 @@ class UserModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT user_id, user_name, user_email, user_password_hash, user_active,user_deleted, user_suspension_timestamp, user_account_type,
+        $sql = "SELECT user_id, user_name, first_name, last_name, full_name, mobile_phone, home_phone, work_phone, user_fb, user_twitter, user_github, user_gp, user_street, user_city, user_state, user_zip, user_email, user_password_hash, user_active,user_deleted, user_suspension_timestamp, user_account_type,
                        user_failed_logins, user_last_failed_login
                   FROM users
                  WHERE (user_name = :user_name OR user_email = :user_name)
@@ -328,7 +711,7 @@ class UserModel
         $database = DatabaseFactory::getFactory()->getConnection();
 
         // get real token from database (and all other data)
-        $query = $database->prepare("SELECT user_id, user_name, user_email, user_password_hash, user_active,
+        $query = $database->prepare("SELECT user_id, user_name, first_name, last_name, full_name, mobile_phone, home_phone, work_phone, user_fb, user_twitter, user_github, user_gp, user_street, user_city, user_state, user_zip, user_email, user_password_hash, user_active,
                                           user_account_type,  user_has_avatar, user_failed_logins, user_last_failed_login
                                      FROM users
                                      WHERE user_id = :user_id

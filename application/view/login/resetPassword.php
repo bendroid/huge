@@ -1,11 +1,9 @@
-<div class="container">
-    <h1>LoginController/resetPassword</h1>
+<h4>Reset Password</h4>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-    <div class="box">
-        <h2>Set new password</h2>
+        <h4>Set new password</h4>
 
         <p>FYI: ... Idenfitication process works via password-reset-token (hidden input field)</p>
 
@@ -23,5 +21,3 @@
         </form>
 
         <a href="<?php echo Config::get('URL'); ?>login/index">Back to Login Page</a>
-    </div>
-</div>

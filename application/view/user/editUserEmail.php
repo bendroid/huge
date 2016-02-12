@@ -1,11 +1,9 @@
-<div class="container">
-    <h1>UserController/editUserEmail</h1>
+<h4>editUserEmail</h4>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-    <div class="box">
-        <h2>Change your email address</h2>
+        <h4>Change your email address</h4>
 
         <form action="<?php echo Config::get('URL'); ?>user/editUserEmail_action" method="post">
             <label>
@@ -13,5 +11,3 @@
             </label>
             <input type="submit" value="Submit" />
         </form>
-    </div>
-</div>

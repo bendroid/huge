@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Over, bootstrap side navbar">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, dashboard, bootstrap, front-end, frontend, web development, normal, side, navbar">
+    <meta name="author" content="CodBits">
+
+    <title>Over &middot; Bootstrap Side Navbar</title>
+
+    <!-- Bootstrap core and other CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elemdnts and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico">
+  </head>
+
+  <body>
+    <!-- This div fix the hidden overflow issue on mobile devices -->
+    <div class="main-wrap">
+      <!-- Over Navbar Left -->
+        <div class="over-navbar-left onl-hide">
+          <div class="onl-user">
+            <img src="img/avatar.jpg" class="onl-avatar" alt="Reardestani avatar">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+              <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  CodBits &nbsp;
+                  <span class="fa fa-angle-down"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupDrop1">
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Earning</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="active"><a href="#">Active link</a></li>
+              </ul>
+            </div>
+            <p class="user-title">Creative Designer</p>
+            <div class="user-statistics">
+              <ul class="list-inline">
+                <li><a href="#"><span class="fa fa-trophy"></span>999</a></li>
+                <li><a href="#"><span class="fa fa-tint"></span>1.4K</a></li>
+                <li><a href="#"><span class="fa fa-briefcase"></span>47</a></li>
+              </ul>
+            </div>
+          </div> <!-- /.onl-data -->
+          
+          <ul class="onl-nav">
+            <li>
+              <a class="collapsed" data-toggle="collapse" href="#collapseStatistics" aria-expanded="false" aria-controls="collapseStatistics">
+                <span class="glyphicon glyphicon-stats onl-link-icon"></span>
+                <span class="onl-link-text">Statistics</span>
+                <span class="fa fa-angle-up onl-btn-sub-collapse"></span>
+              </a>
+              <!-- Dropdown level one -->
+              <ul class="onl-sub-one collapse" id="collapseStatistics">
+                <li>
+                  <a href="#">
+                    <span class="fa fa-clock-o onl-link-icon"></span>
+                    <span class="onl-link-text">Daily</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="fa fa-history onl-link-icon"></span>
+                    <span class="onl-link-text">Annual</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="fa fa-database onl-link-icon"></span>
+                <span class="onl-link-text">UI kit</span>
+              </a>
+            </li>
+            <li>
+              <a class="collapsed" data-toggle="collapse" href="#collapseLevelOne" aria-expanded="false" aria-controls="collapseLevelOne">
+                <span class="fa fa-th onl-link-icon"></span>
+                <span class="onl-link-text">Apps</span>
+                <span class="fa fa-angle-up onl-btn-sub-collapse"></span>
+              </a>
+              <!-- Dropdown level one -->
+              <ul class="onl-sub-one collapse" id="collapseLevelOne">
+                <li>
+                  <a class="collapsed" data-toggle="collapse" href="#collapseLevelTwo" aria-expanded="false" aria-controls="collapseLevelTwo">
+                    <span class="fa fa-android onl-link-icon"></span>
+                    <span class="onl-link-text">Android</span>
+                    <span class="fa fa-angle-up onl-btn-sub-collapse"></span>
+                  </a>
+                  <!-- Dropdown level two -->
+                  <ul class="onl-sub-two collapse" id="collapseLevelTwo">
+                    <li>
+                      <a href="#">
+                        <span class="fa fa-circle-o onl-link-icon"></span>
+                        <span class="onl-link-text">Angry Bird</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="fa fa-circle-o onl-link-icon"></span>
+                        <span class="onl-link-text">Clash of Clans</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="fa fa-apple onl-link-icon"></span>
+                    <span class="onl-link-text">IOS</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="fa fa-user onl-link-icon"></span>
+                <span class="onl-link-text">Customers</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="fa fa-cogs onl-link-icon"></span>
+                <span class="onl-link-text">Settings</span>
+              </a>
+            </li>
+          </ul> <!-- /.onl-nav -->
+
+          <div class="onl-charts">
+            <ul class="list-unstyled">
+              <li>
+                <p class="bar">4,5,3,6,8,5,1,5,6,15</p>
+                <p class="chart-name">Sales</p>
+              </li>
+              <li>
+                <p class="bar">4,5,8,6,2,5,12,5,7,9</p>
+                <p class="chart-name">Views</p>
+              </li>
+              <li>
+                <p class="bar">5,8,2,13,5,9,12,13,15,19</p>
+                <p class="chart-name">Downloads</p>
+              </li>
+            </ul>
+            
+          </div> <!-- /.onl-charts -->
+        </div>
+
+        <!-- Enter your page content below here -->
+        <!-- Available effects: onl-push, onl-overlay, onl-darken, onl-opacity -->
+        <div class="content-wrap" data-effect="onl-push">
+          <nav class="navbar navbar-static-top over-navbar-top">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="onl-btn-toggle navbar-toggle">
+                  <span class="fa fa-navicon"></span>
+                </button>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ont-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="fa fa-ellipsis-v"></span>
+                </button>
+                <a class="navbar-brand" href="#">DATA <span>PRO</span></a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div id="ont-collapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">     
+                  <li>
+                    <a href="#"><span class="fa fa-sliders"></span></a>
+                    <span class="notification">3</span>
+                  </li>     
+                  <li>
+                    <a href="#"><span class="fa fa-newspaper-o"></span></a>
+                    <span class="notification success">9</span>
+                  </li>     
+                  <li>
+                    <a href="#"><span class="fa fa-calendar"></span></a>
+                  </li>  
+                  <li class="hidden-xs">
+                    <a href="#" class="onl-btn-toggle"><span class="fa fa-navicon"></span></a>
+                  </li>   
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+          <div class="page-info">
+            <div class="container-fluid">
+              <p>
+                <span class="hidden-xs">Check out the data in chart</span>
+                <span class="sub-info">
+                  <span class="glyphicon glyphicon-stats"></span> &nbsp; Statistics
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <h2 class="page-header">Some dummy content</h2>
+            <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus. <a href="#">Sample link</a></p>
+            <hr>
+            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturidnt montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+
+            Cum sociis natoque penatibus et magnis dis parturidnt montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <hr>
+            <blockquote>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+              <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </blockquote>
+            <hr>
+            <ul>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>Consectetur adipiscing elit</li>
+              <li>Integer molestie lorem at massa</li>
+              <li>Facilisis in pretium nisl aliquet</li>
+              <li>Nulla volutpat aliquam velit
+                <ul>
+                  <li>Phasellus iaculis neque</li>
+                  <li>Purus sodales ultricies</li>
+                  <li>Vestibulum laoreet porttitor sem</li>
+                  <li>Ac tristique libero volutpat at</li>
+                </ul>
+              </li>
+              <li>Faucibus porta lacus fringilla vel</li>
+              <li>Aenean sit amet erat nunc</li>
+              <li>Eget porttitor lorem</li>
+            </ul>
+            <hr>
+            <div>
+              <div class="media">
+                <a class="media-left" href="#">
+                  <img alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimdntum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+              </div>
+              <div class="media">
+                <a class="media-left" href="#">
+                  <img alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimdntum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                  <div class="media">
+                    <a class="media-left" href="#">
+                      <img alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Nested media heading</h4>
+                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimdntum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
+                <a class="media-right" href="#">
+                  <img alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                </a>
+              </div>
+              <div class="media">
+                <a class="media-left" href="#">
+                  <img alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
+                <a class="media-right" href="#">
+                  <img alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                </a>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+    </div> <!-- /.main-wrap -->
+    
+    <!-- Le javaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.peity.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+  </body>
+</html>
