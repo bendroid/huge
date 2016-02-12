@@ -2,7 +2,7 @@
 
 # Use single quotes instead of double quotes to make it work with special-character passwords
 PASSWORD='12345678'
-PROJECTFOLDER='myproject'
+PROJECTFOLDER='huge'
 
 # Create project folder, written in 3 single mkdir-statements to make sure this runs everywhere without problems
 sudo mkdir "/var/www"
